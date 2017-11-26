@@ -1,0 +1,12 @@
+{
+  "name": "css-select-extension-fs",
+  "version": "0.0.0",
+  "homepage": "https://github.com/panlina/css-select-extension-fs",
+  "author": "Jack Lu <jacklu@jacklu.me>",
+  "peerDependencies": {
+    "css-select": "https://github.com/panlina/css-select.git"
+  },
+  "devDependencies": {
+    "css-select": "https://github.com/panlina/css-select.git"
+  }
+}
