@@ -10,7 +10,7 @@ module.exports = function (what, select) {
 			
 			return function start(elem) {
 				var attr = adapter.getAttributeValue(elem, name);
-				return attr != null && attr <= parseInt(value) && next(elem);
+				return attr != null && attr <= parseSize(value) && next(elem);
 			};
 		};
 	};
@@ -21,8 +21,18 @@ module.exports = function (what, select) {
 			
 			return function start(elem) {
 				var attr = adapter.getAttributeValue(elem, name);
-				return attr != null && attr >= parseInt(value) && next(elem);
+				return attr != null && attr >= parseSize(value) && next(elem);
 			};
 		};
 	};
+	function parseSize(value) {
+		var match = value.match(/([0-9]+)(k|m|g)?/);
+		var value = parseInt(match[1]), unit = match[2];
+		switch (unit) {
+			case 'k': value <<= 10; break;
+			case 'm': value <<= 20; break;
+			case 'g': value <<= 30; break;
+		}
+		return value;
+	}
 };
